@@ -6,8 +6,8 @@ import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { nanoid } from "nanoid";
 import { router, organizationProcedure } from "../lib/trpc";
-import { menuDetails, menus, menuToMenuDetails, storeMenus } from "@/db/schema";
-import { S3 } from "@/lib/s3";
+import { menuDetails, menus, menuToMenuDetails, storeMenus } from "../db/schema";
+import { S3 } from "../lib/s3";
 
 const menuRouter = router({
   getMenu: organizationProcedure.query(async ({ ctx }) => {

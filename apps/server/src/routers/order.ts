@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { eq, inArray } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
-import { organizationProcedure, publicProcedure, router } from "@/lib/trpc";
-import { orderItems, orders } from "@/db/schema";
+import { organizationProcedure, publicProcedure, router } from "../lib/trpc";
+import { orderItems, orders } from "../db/schema";
 
 const orderRouter = router({
   addOrder: publicProcedure

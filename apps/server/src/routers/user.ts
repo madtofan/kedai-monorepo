@@ -1,6 +1,6 @@
-import { memberToPermissionGroups } from "@/db/schema";
-import { auth } from "@/lib/auth";
-import { organizationProcedure, protectedProcedure, router } from "@/lib/trpc";
+import { memberToPermissionGroups } from "../db/schema";
+import { auth } from "../lib/auth";
+import { organizationProcedure, protectedProcedure, router } from "../lib/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 

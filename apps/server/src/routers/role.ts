@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { and, count, eq, inArray } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
-import { organizationProcedure, router } from "@/lib/trpc";
-import { groupsToPermissions, permissionGroups } from "@/db/schema";
+import { organizationProcedure, router } from "../lib/trpc";
+import { groupsToPermissions, permissionGroups } from "../db/schema";
 
 const roleRouter = router({
   addRole: organizationProcedure

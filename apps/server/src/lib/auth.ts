@@ -29,7 +29,7 @@ const authConfig = {
         ? {
           enabled: true,
           domain:
-            process.env.NEXT_PUBLIC_BETTER_AUTH_URL?.replace(
+            env.BETTER_AUTH_URL?.replace(
               /^https?:\/\//,
               "",
             ) ?? "",
@@ -83,7 +83,7 @@ const authConfig = {
     expo(),
     organization({
       async sendInvitationEmail(data) {
-        const inviteLink = `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/accept-invitation/${data.id}`;
+        const inviteLink = `${env.BETTER_AUTH_URL}/accept-invitation/${data.id}`;
 
         sendEmail({
           to: data.email,

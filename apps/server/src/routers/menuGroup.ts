@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { and, eq } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
-import { organizationProcedure, router } from "@/lib/trpc";
-import { menuGroups } from "@/db/schema";
+import { organizationProcedure, router } from "../lib/trpc";
+import { menuGroups } from "../db/schema";
 
 const menuGroupRouter = router({
   addMenuGroup: organizationProcedure

@@ -1,9 +1,9 @@
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
-import { organizationProcedure, protectedProcedure, router } from "@/lib/trpc";
-import { auth } from "@/lib/auth";
+import { organizationProcedure, protectedProcedure, router } from "../lib/trpc";
+import { auth } from "../lib/auth";
 import slug from "slug";
-import { memberToPermissionGroups, menuGroups, permissionGroups, stores } from "@/db/schema";
+import { memberToPermissionGroups, menuGroups, permissionGroups, stores } from "../db/schema";
 
 const organizationRouter = router({
   createOrganization: protectedProcedure

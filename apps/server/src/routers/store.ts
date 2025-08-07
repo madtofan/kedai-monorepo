@@ -2,8 +2,8 @@ import { z } from "zod";
 import { and, eq } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 import slug from "slug";
-import { organizationProcedure, publicProcedure, router } from "@/lib/trpc";
-import { stores } from "@/db/schema";
+import { organizationProcedure, publicProcedure, router } from "../lib/trpc";
+import { stores } from "../db/schema";
 
 const storeRouter = router({
   addStore: organizationProcedure

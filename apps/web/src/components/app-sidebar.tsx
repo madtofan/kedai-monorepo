@@ -1,4 +1,5 @@
 "use client";
+
 import * as React from "react";
 import {
   Beef,
@@ -85,13 +86,13 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { data: userDetails } = useQuery(trpc.user.getCurrentUser.queryOptions())
+  const { data: userDetails, isLoading: isLoadingUser } = useQuery(trpc.user.getCurrentUser.queryOptions())
   const { data: organizationDetails } =
     useQuery(trpc.organization.getOrganization.queryOptions());
   const {
     data: stores,
     error,
-    isLoading,
+    isLoading: isLoadingStores,
   } = useQuery(trpc.store.getAllStore.queryOptions(undefined, {
     retry: false,
   }));
@@ -140,9 +141,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        {userDetails && <NavUser user={userDetails} />}
+        {userDetails && !isLoadingUser && <NavUser user={userDetails} />}
       </SidebarFooter>
-      <Dialog open={!stores && !userDetails && isLoading}>
+      <Dialog open={!stores && isLoadingStores}>
         <DialogTitle className="hidden">System</DialogTitle>
         <DialogDescription className="hidden">
           Loading user details dialog

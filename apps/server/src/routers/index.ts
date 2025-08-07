@@ -28,4 +28,5 @@ export const appRouter = router({
   store: storeRouter,
   user: userRouter,
 });
+
 export type AppRouter = typeof appRouter;

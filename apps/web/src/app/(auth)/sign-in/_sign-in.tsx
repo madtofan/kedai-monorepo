@@ -146,7 +146,7 @@ export default function SignIn() {
                   setLoading(true);
                   await authClient.signIn.social({
                     provider: "google",
-                    callbackURL: "http://localhost:3001/dashboard",
+                    callbackURL: `${process.env.NEXT_PUBLIC_CLIENT_URL}/dashboard`,
                   });
                 }}
               >
