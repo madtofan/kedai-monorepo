@@ -22,14 +22,7 @@ import { VerticalContainer } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { queryClient, trpc, type RouterOutputs } from "@/utils/trpc";
-
-function formatDateTime(date: Date) {
-  return date.toLocaleString("en-US", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-}
+import { formatDateTime } from "@/utils/date";
 
 function getStatusColor(status: string) {
   switch (status) {
@@ -97,7 +90,7 @@ export default async function OrderHistoryPage({
                   <>
                     <Clock className="h-4 w-4 text-muted-foreground" />
                     <span className="text-muted-foreground">
-                      {`Session started at ${formatDateTime(new Date(tableOrders[0].createdAt))}`}
+                      {`Session started at ${formatDateTime(tableOrders[0].createdAt)}`}
                     </span>
                   </>
                 )}
@@ -125,7 +118,7 @@ export default async function OrderHistoryPage({
                           <div className="flex items-center gap-4">
                             <span className="font-semibold">{order.id}</span>
                             <Badge variant="secondary">
-                              {formatDateTime(new Date(order.createdAt))}
+                              {formatDateTime(order.createdAt)}
                             </Badge>
                           </div>
                           <div className="font-semibold">

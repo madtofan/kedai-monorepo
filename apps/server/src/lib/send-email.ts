@@ -1,6 +1,7 @@
 "server-only";
 
 import { betterFetch } from "@better-fetch/fetch";
+import { env } from "cloudflare:workers";
 
 export function sendEmail({
   to,
@@ -11,13 +12,14 @@ export function sendEmail({
   subject: string;
   html: string;
 }) {
+  console.log({ emailHtml: html });
   // TODO - implement waitUntil
   betterFetch<{ success: boolean; messageId: string; message: string }>(
-    process.env.EMAIL_API_ENDPOINT ?? '',
+    env.EMAIL_API_ENDPOINT ?? '',
     {
       method: "POST",
       headers: {
-        "X-API-Key": process.env.EMAIL_API_KEY ?? '',
+        "X-API-Key": env.EMAIL_API_KEY ?? '',
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

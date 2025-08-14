@@ -6,7 +6,7 @@
     "build": "wrangler --config ./wrangler.jsonc deploy --dry-run",
     "check-types": "tsc -b",
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
-    "dev": "wrangler dev --port=3000",
+    "dev": "NODE_ENV=development wrangler dev --port=3000",
     "email": "email dev",
     "start": "wrangler dev",
     "deploy": "wrangler deploy",

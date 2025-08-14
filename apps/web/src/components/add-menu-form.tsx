@@ -48,8 +48,8 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 export interface Menu {
-  createdAt: Date;
-  updatedAt: Date | null;
+  createdAt: string;
+  updatedAt: string | null;
   menuGroupId?: string;
   menuGroupName?: string;
   menuDetailsId: number;

@@ -10,7 +10,7 @@ import { reactInvitationEmail } from "./email/organization-invitation";
 import { stripe } from "@better-auth/stripe"
 import Stripe from "stripe"
 
-const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+const stripeClient = new Stripe(env.STRIPE_SECRET_KEY, {
   apiVersion: "2025-06-30.basil",
 })
 
@@ -62,8 +62,8 @@ const authConfig = {
   },
   socialProviders: {
     google: {
-      clientId: process.env.GOOGLE_AUTH_ID ?? "",
-      clientSecret: process.env.GOOGLE_AUTH_SECRET ?? "",
+      clientId: env.GOOGLE_AUTH_ID ?? "",
+      clientSecret: env.GOOGLE_AUTH_SECRET ?? "",
     },
   },
   databaseHooks: {
@@ -101,7 +101,7 @@ const authConfig = {
     }),
     stripe({
       stripeClient,
-      stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
+      stripeWebhookSecret: env.STRIPE_WEBHOOK_SECRET,
       createCustomerOnSignUp: true,
     })
   ],
