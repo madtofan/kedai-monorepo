@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MenuForm } from "@/components/add-menu-form";
+import { MenuForm, type Menu } from "@/components/add-menu-form";
 import { VerticalContainer } from "@/components/ui/container";
 import { Input } from "@/components/ui/input";
 import {
@@ -33,20 +33,6 @@ import Link from "next/link";
 import { queryClient, trpc } from "@/utils/trpc";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
-
-interface Menu {
-  createdAt: Date;
-  updatedAt: Date | null;
-  menuGroupId?: string;
-  menuGroupName?: string;
-  menuDetailsId: number;
-  id: number;
-  name: string;
-  sale: number;
-  cost: number;
-  image: string | null;
-  description: string | null;
-}
 
 export default function NewMenuPage() {
   const [openMenuForm, setOpenMenuForm] = useState(false);
@@ -90,8 +76,8 @@ export default function NewMenuPage() {
       ...menu.menuDetails,
       id: menu.id,
       menuDetailsId: menu.menuDetails.id,
-      createdAt: new Date(menu.createdAt),
-      updatedAt: menu.updatedAt ? new Date(menu.updatedAt) : null,
+      createdAt: menu.createdAt,
+      updatedAt: menu.updatedAt,
       menuGroupName: menu.menuGroups?.name,
       menuGroupId: menu.menuGroups?.id,
     }));
