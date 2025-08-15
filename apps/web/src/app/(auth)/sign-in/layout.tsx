@@ -7,7 +7,7 @@ export default async function Page({
   children: React.ReactNode;
 }) {
   const session = await authClient.getSession();
-  if (!!session.data?.session.userId) {
+  if (!!session.data?.session?.userId) {
     redirect("/dashboard");
   }
 

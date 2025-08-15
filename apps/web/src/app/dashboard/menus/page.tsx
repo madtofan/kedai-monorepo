@@ -331,8 +331,10 @@ const MenuTableBody = ({
 
   if (menuItems.length === 0) {
     return (
-      <TableRow className="flex justify-center text-center">
-        Your organization currently have no menu.
+      <TableRow>
+        <TableCell colSpan={7} className="text-center">
+          Your organization currently have no menu.
+        </TableCell>
       </TableRow>
     );
   }

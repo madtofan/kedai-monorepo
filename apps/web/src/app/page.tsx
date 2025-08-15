@@ -43,7 +43,7 @@ export default async function Home() {
             Contact
           </Link>
           <nav className="ml-auto flex">
-            <SignInButton isLoggedIn={!!session.data?.session.userId} />
+            <SignInButton isLoggedIn={!!session.data?.session?.userId} />
           </nav>
         </header>
         <main className="flex-1">
