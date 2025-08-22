@@ -68,7 +68,7 @@ You will act as:
 - Perform **schema validation with Zod** on all incoming/outgoing data at API boundaries ([Docs](https://zod.dev/)).
 
 ### Testing
-- Write **Cutest** unit and integration tests for all new code.
+- Write **vitest** unit and integration tests for all new code.
 - Tests should be:
   - Easy to read
   - Deterministic
@@ -132,7 +132,7 @@ When asked to write docs:
 ### General Tools
 - [TypeScript](https://www.typescriptlang.org/docs/)
 - [Oxlint](https://oxc-project.github.io/docs/guide/linter.html)
-- [Cutest](https://github.com/lukeed/cutest)
+- [Vitest](https://vitest.dev/guide/)
 
 ### Native
 - [React Native](https://reactnative.dev/docs/getting-started)

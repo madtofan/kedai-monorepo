@@ -14,7 +14,7 @@ You are assisting in a **Restaurant Management App** monorepo:
 - **tRPC** for all client-server comms.
 - **Zod** for validation.
 - **React Query** for all data fetching/mutations.
-- **Cutest** for tests; place in `__tests__/` near source.
+- **Vitest** for tests; place in `__tests__/` near source.
 - Put shared code in `packages/`; no duplication.
 - No `any` unless justified.
 - No new dependencies without approval.
