@@ -1,77 +1,88 @@
-# kedai-monorepo
+# Restaurant Management App
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Hono, TRPC, and more.
+This is a monorepo for a Restaurant Management App, built with a modern TypeScript stack. The project is designed to help restaurant owners manage their menus and orders efficiently.
 
-## Features
+## Project Overview
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **React Native** - Build mobile apps using React
-- **Expo** - Tools for React Native development
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Hono** - Lightweight, performant server framework
-- **tRPC** - End-to-end type-safe APIs
-- **workers** - Runtime environment
-- **Drizzle** - TypeScript-first ORM
-- **SQLite/Turso** - Database engine
-- **Authentication** - Email & password authentication with Better Auth
-- **PWA** - Progressive Web App support
-- **Turborepo** - Optimized monorepo build system
+The project is a monorepo managed with **Turborepo** and consists of three main applications:
+
+-   **`native`**: A mobile application built with React Native and Expo for managing the restaurant on the go.
+-   **`server`**: A backend API built with Hono and tRPC, providing data and business logic for the client applications.
+-   **`web`**: A web application built with Next.js for a comprehensive management dashboard.
+
+## Quick Links
+
+- Governance (Quick Rules): [GEMINI.MD](GEMINI.MD)
+- Governance (Full Guide): [GEMINI-FULL.md](GEMINI-FULL.md)
+
+## Tech Stack
+
+This project utilizes a modern tech stack to ensure a high-quality, scalable, and maintainable application.
+
+-   **Monorepo:** Turborepo
+-   **Frontend (Web):** Next.js, TanStack Query (React Query), shadcn/ui, Tailwind CSS
+-   **Frontend (Mobile):** React Native, Expo, React Query, NativeWind
+-   **Backend:** Hono, tRPC, Drizzle ORM, Cloudflare D1, Cloudflare R2
+-   **Database:** Cloudflare D1 (SQLite)
+-   **Validation:** Zod
+-   **Linting:** oxlint
+-   **Authentication:** [Better-Auth](https://better-auth.dev/)
 
 ## Getting Started
 
-First, install the dependencies:
+To get started with this project, you'll need to have Node.js and pnpm installed.
 
-```bash
-pnpm install
-```
-## Database Setup
+1.  **Install dependencies:**
+    ```bash
+    pnpm install
+    ```
 
-This project uses SQLite with Drizzle ORM.
+2.  **Set up environment variables:**
 
-1. Start the local SQLite database:
-Local development for a Cloudflare D1 database will already be running as part of the `wrangler dev` command.
+    Each application (`native`, `server`, `web`) has its own `.env.example` file. Copy these to `.env` (or `.dev.vars` for the server) and fill in the required values.
+    See per-app setup notes:
+    - [apps/native/README.md](apps/native/README.md)
+    - [apps/server/README.md](apps/server/README.md)
+    - [apps/web/README.md](apps/web/README.md)
 
-2. Update your `.env` file in the `apps/server` directory with the appropriate connection details if needed.
+3.  **Run the development servers:**
+    ```bash
+    pnpm dev
+    ```
 
-3. Apply the schema to your database:
-```bash
-pnpm db:push
-```
+    This will start the `native`, `server`, and `web` applications in development mode.
 
+## Monorepo Structure
 
-Then, run the development server:
+The monorepo is organized as follows:
 
-```bash
-pnpm dev
-```
-
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
-Use the Expo Go app to run the mobile application.
-The API is running at [http://localhost:3000](http://localhost:3000).
-
-
-
-## Project Structure
-
-```
+```text
 kedai-monorepo/
 ├── apps/
-│   ├── web/         # Frontend application (Next.js)
 │   ├── native/      # Mobile application (React Native, Expo)
-│   └── server/      # Backend API (Hono, TRPC)
+│   ├── server/      # Backend API (Hono, tRPC)
+│   └── web/         # Frontend application (Next.js)
+├── .gitignore
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+└── turbo.json
 ```
 
 ## Available Scripts
 
-- `pnpm dev`: Start all applications in development mode
-- `pnpm build`: Build all applications
-- `pnpm dev:web`: Start only the web application
-- `pnpm dev:server`: Start only the server
-- `pnpm check-types`: Check TypeScript types across all apps
-- `pnpm dev:native`: Start the React Native/Expo development server
-- `pnpm db:push`: Push schema changes to database
-- `pnpm db:studio`: Open database studio UI
-- `cd apps/server && pnpm db:local`: Start the local SQLite database
-- `cd apps/web && pnpm generate-pwa-assets`: Generate PWA assets
+The following scripts are available at the root of the monorepo:
+
+-   `pnpm dev`: Start all applications in development mode.
+-   `pnpm build`: Build all applications.
+-   `pnpm check-types`: Check TypeScript types across all apps.
+-   `pnpm dev:native`: Start only the native application.
+-   `pnpm dev:web`: Start only the web application.
+-   `pnpm dev:server`: Start only the server application.
+-   `pnpm db:push`: Push schema changes to the database.
+-   `pnpm db:studio`: Open the database studio UI.
+-   `pnpm db:generate`: Generate database migrations.
+-   `pnpm db:migrate`: Apply database migrations.
+-   `pnpm db:migrate:local`: Apply database migrations on local miniflare.
+-   `pnpm db:migrate:production`: Apply database migrations on remote production deployment.
+    (These commands are root-level scripts that start each app’s dev server via Turborepo.)
