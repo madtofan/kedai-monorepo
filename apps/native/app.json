@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "my-better-t-app",
-    "slug": "my-better-t-app",
+    "name": "Kedai App",
+    "slug": "kedai-app",
     "version": "1.0.0",
-    "scheme": "my-better-t-app",
+    "scheme": "kedai-app",
     "web": {
       "bundler": "metro",
       "output": "static",

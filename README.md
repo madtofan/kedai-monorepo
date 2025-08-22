@@ -83,4 +83,6 @@ The following scripts are available at the root of the monorepo:
 -   `pnpm db:studio`: Open the database studio UI.
 -   `pnpm db:generate`: Generate database migrations.
 -   `pnpm db:migrate`: Apply database migrations.
+-   `pnpm db:migrate:local`: Apply database migrations on local miniflare.
+-   `pnpm db:migrate:production`: Apply database migrations on remote production deployment.
     (These commands are root-level scripts that start each app’s dev server via Turborepo.)

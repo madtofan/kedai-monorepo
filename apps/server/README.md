@@ -25,8 +25,8 @@ To get started with the server, you'll need to have [Wrangler](https://developer
 
 Configure these before running or deploying:
 
-- Cloudflare D1 binding (database) — binding name as defined in wrangler.jsonc
-- Cloudflare R2 binding (object storage) — binding name as defined in wrangler.jsonc
+- Cloudflare D1 binding (database), e.g. `DATABASE` — must match `wrangler.jsonc`
+- Cloudflare R2 binding (object storage), e.g. `ASSETS` — must match `wrangler.jsonc`
 - Any app secrets (e.g., JWT_SECRET)
 
 Local development:
@@ -35,6 +35,15 @@ Local development:
 
 Production:
 - Set the same bindings/secrets in your Cloudflare project settings.
+
+Example `wrangler.jsonc` snippet:
+```jsonc
+{
+  "name": "server",
+  "compatibility_date": "2024-12-01",
+  "d1_databases": [{ "binding": "DATABASE", "database_name": "kedai", "database_id": "xxxxxxxx" }],
+  "r2_buckets": [{ "binding": "ASSETS", "bucket_name": "kedai-assets" }]
+}
 
 ## Tech Stack
 
@@ -65,13 +74,17 @@ apps/server/
 
 The API is built with tRPC and Hono. The tRPC routers are defined in the `src/routers` directory. The available routers are:
 
--   `menu.ts`
--   `menuGroup.ts`
--   `order.ts`
--   `organization.ts`
--   `role.ts`
--   `store.ts`
--   `user.ts`
+Example:
+```text
+apps/server/src/routers/
+├── menu.ts
+├── menuGroup.ts
+├── order.ts
+├── organization.ts
+├── role.ts
+├── store.ts
+└── user.ts
+```
 
 ## Database
 

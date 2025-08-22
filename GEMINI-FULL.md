@@ -1,4 +1,12 @@
 # GEMINI-FULL.md — Full Rules & References
+- [Project Overview](#project-overview)
+- [Your Role](#your-role)
+- [Coding Guidelines](#coding-guidelines)
+- [Monorepo Context](#monorepo-context)
+- [Documentation Guidelines](#documentation-guidelines)
+- [How to Respond](#how-to-respond)
+- [Forbidden](#forbidden)
+- [Official Documentation Links](#official-documentation-links)
 
 ## Project Overview
 You are assisting in the development of a **Restaurant Management App** where the restaurant owner can:
@@ -34,7 +42,7 @@ You will act as:
 1. **Coding Assistant**
    - Write, refactor, and optimize TypeScript code following the project’s rules.
    - Suggest improvements to maintainability without breaking the existing folder structure.
-   - Write tests for all new features using **CuteTest**.
+   - Write tests for all new features using **Vitest**.
    - Enforce type safety and data validation using **Zod**.
    - Always use **tRPC** for client-server communication.
    - Ensure React Query best practices for fetching/mutations.
@@ -60,10 +68,11 @@ You will act as:
 ### Code Style
 - Follow **Oxlint** rules (already set up in the repo).
 - Use **descriptive variable and function names**.
-- Write **JSDoc** comments for public functions, API handlers, and complex logic.
+- Write **TSDoc-flavored JSDoc** comments for public functions, API handlers, and complex logic.
 
 ### Data & API
-- All data communication between client and server **must use tRPC** ([Docs](https://trpc.io/docs)).
+- All app client ↔ first‑party server communication **must use tRPC** ([Docs](https://trpc.io/docs)).
+  Exceptions: third‑party webhooks, OAuth redirects/callbacks, and provider SDKs may use their required transport formats.
 - Use **React Query** for all client-side data fetching and mutations ([Docs](https://tanstack.com/query/latest/docs/react/overview)).
 - Perform **schema validation with Zod** on all incoming/outgoing data at API boundaries ([Docs](https://zod.dev/)).
 
@@ -77,6 +86,10 @@ You will act as:
 ### Security
 - Validate and sanitize all user input.
 - Avoid exposing sensitive data in logs or API responses.
+- Manage secrets with environment variables and a secrets manager; never commit secrets.
+- Enable dependency vulnerability scanning and keep deps updated (e.g., scheduled updates).
+- Enforce authn/authz at the API boundary; document roles/permissions next to each tRPC router.
+- Log security-relevant events with PII minimization and retention policies.
 
 ---
 
@@ -90,8 +103,6 @@ You will act as:
 ```
 
   **Rules:**
-- Shared types and utilities go in `packages/`.
-- Avoid duplicating code between `native`, `server`, and `web` — put shared code in `packages/`.
 - Server logic stays in `server` only.
 - UI logic stays in `native` or `web` as appropriate.
 
@@ -114,10 +125,12 @@ When asked to write code:
 - Provide the **full function/component** (not just a snippet), so it can be copied directly.
 - Explain **why** you chose this implementation.
 - Suggest possible improvements or alternatives if relevant.
+- Include types and Zod schemas where applicable, and adhere to Oxlint rules.
 
 When asked to write docs:
 - Provide **Markdown-ready output** that can be pasted into the repo.
 - Include relevant code references or links to related modules if possible.
+- Prefer examples that compile/run against this monorepo’s packages/APIs.
 
 ---
 
@@ -131,6 +144,7 @@ When asked to write docs:
 ## Official Documentation Links
 ### General Tools
 - [TypeScript](https://www.typescriptlang.org/docs/)
+- [Turborepo](https://turbo.build/repo/docs)
 - [Oxlint](https://oxc-project.github.io/docs/guide/linter.html)
 - [Vitest](https://vitest.dev/guide/)
 
@@ -151,5 +165,5 @@ When asked to write docs:
 ### Web
 - [Next.js](https://nextjs.org/docs)
 - [React Query](https://tanstack.com/query/latest/docs/react/overview)
-- [ShadCN](https://ui.shadcn.com/docs)
+- [shadcn/ui](https://ui.shadcn.com/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)

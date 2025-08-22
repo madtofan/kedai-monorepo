@@ -4,7 +4,8 @@ This is the mobile application for the Restaurant Management App, built with Rea
 
 ## Getting Started
 
-To get started with the native app, you'll need to have the Expo Go app installed on your mobile device or an emulator set up on your development machine.
+To get started with the native app, install Expo Go on a device or set up an emulator/simulator.
+If the app uses native modules not supported by Expo Go, use a Dev Client instead (e.g., `expo run:android` / `expo run:ios`).
 
 ### Prerequisites
 - Node.js (LTS) and pnpm
@@ -37,14 +38,18 @@ To get started with the native app, you'll need to have the Expo Go app installe
         ```
 
 ## Environment
-- Configure the API base URL used by tRPC/React Query (e.g., `EXPO_PUBLIC_API_URL`).
+- Configure the API base URL used by tRPC/React Query, e.g.:
+    ```
+    EXPO_PUBLIC_API_URL=http://192.168.1.100:8787
+    ```
+    Variables prefixed with `EXPO_PUBLIC_` are embedded in the app bundle and visible to clients.
 - For local development, ensure the device/emulator can reach your server (use LAN IP).
 
 ## Tech Stack
 
 -   **Framework:** [React Native](https://reactnative.dev/docs/getting-started)
 -   **Build Tool:** [Expo](https://docs.expo.dev/)
--   **State Management/Data Fetching:** [React Query](https://tanstack.com/query/latest/docs/react/overview)
+-   **State Management/Data Fetching:** [TanStack Query (React Query)](https://tanstack.com/query/latest/docs/react/overview)
 -   **Styling:** [NativeWind](https://www.nativewind.dev/)
 -   **RPC:** [tRPC](https://trpc.io/docs)
 -   **Authentication:** [Better-Auth](https://better-auth.dev/)
