@@ -24,7 +24,7 @@ The project is a **monorepo** using **Turborepo** with 3 main parts:
 ### 3. `web` — Frontend Web App
 - Framework: [Next.js](https://nextjs.org/docs)
 - State/Data: [React Query](https://tanstack.com/query/latest/docs/react/overview)
-- UI: [ShadCN](https://ui.shadcn.com/docs)
+- UI: [shadcn/ui](https://ui.shadcn.com/docs)
 - Styling: [Tailwind CSS](https://tailwindcss.com/docs)
 
 ---
@@ -68,7 +68,7 @@ You will act as:
 - Perform **schema validation with Zod** on all incoming/outgoing data at API boundaries ([Docs](https://zod.dev/)).
 
 ### Testing
-- Write **CuteTest** unit and integration tests for all new code.
+- Write **Cutest** unit and integration tests for all new code.
 - Tests should be:
   - Easy to read
   - Deterministic
@@ -82,10 +82,12 @@ You will act as:
 
 ## Monorepo Context
 
+```text
 └── apps
   ├── native # Expo React Native mobile app
   ├── server # Hono backend
-  └── web # Next.js web frontend
+  └── web    # Next.js web frontend
+```
 
   **Rules:**
 - Shared types and utilities go in `packages/`.
@@ -127,18 +129,18 @@ When asked to write docs:
 ---
 
 ## Official Documentation Links
-**General Tools**
+### General Tools
 - [TypeScript](https://www.typescriptlang.org/docs/)
 - [Oxlint](https://oxc-project.github.io/docs/guide/linter.html)
-- [CuteTest](https://github.com/lukeed/cutest)  
+- [Cutest](https://github.com/lukeed/cutest)
 
-**Native**
+### Native
 - [React Native](https://reactnative.dev/docs/getting-started)
 - [Expo](https://docs.expo.dev/)
 - [React Query](https://tanstack.com/query/latest/docs/react/overview)
 - [NativeWind](https://www.nativewind.dev/)
 
-**Server**
+### Server
 - [Hono](https://hono.dev/docs)
 - [tRPC](https://trpc.io/docs)
 - [Drizzle ORM](https://orm.drizzle.team/docs/overview)
@@ -146,7 +148,7 @@ When asked to write docs:
 - [Cloudflare R2](https://developers.cloudflare.com/r2/)
 - [Zod](https://zod.dev/)
 
-**Web**
+### Web
 - [Next.js](https://nextjs.org/docs)
 - [React Query](https://tanstack.com/query/latest/docs/react/overview)
 - [ShadCN](https://ui.shadcn.com/docs)

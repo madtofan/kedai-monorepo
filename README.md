@@ -10,17 +10,23 @@ The project is a monorepo managed with **Turborepo** and consists of three main 
 -   **`server`**: A backend API built with Hono and tRPC, providing data and business logic for the client applications.
 -   **`web`**: A web application built with Next.js for a comprehensive management dashboard.
 
+## Quick Links
+
+- Governance (Quick Rules): [GEMINI.MD](GEMINI.MD)
+- Governance (Full Guide): [GEMINI-FULL.md](GEMINI-FULL.md)
+
 ## Tech Stack
 
 This project utilizes a modern tech stack to ensure a high-quality, scalable, and maintainable application.
 
 -   **Monorepo:** Turborepo
--   **Frontend (Web):** Next.js, React Query, ShadCN, Tailwind CSS
+-   **Frontend (Web):** Next.js, TanStack Query (React Query), shadcn/ui, Tailwind CSS
 -   **Frontend (Mobile):** React Native, Expo, React Query, NativeWind
 -   **Backend:** Hono, tRPC, Drizzle ORM, Cloudflare D1, Cloudflare R2
 -   **Database:** Cloudflare D1 (SQLite)
 -   **Validation:** Zod
--   **Linting:** Oxlint
+-   **Linting:** oxlint
+-   **Authentication:** [Better-Auth](https://better-auth.dev/)
 
 ## Getting Started
 
@@ -34,6 +40,10 @@ To get started with this project, you'll need to have Node.js and pnpm installed
 2.  **Set up environment variables:**
 
     Each application (`native`, `server`, `web`) has its own `.env.example` file. Copy these to `.env` (or `.dev.vars` for the server) and fill in the required values.
+    See per-app setup notes:
+    - [apps/native/README.md](apps/native/README.md)
+    - [apps/server/README.md](apps/server/README.md)
+    - [apps/web/README.md](apps/web/README.md)
 
 3.  **Run the development servers:**
     ```bash
@@ -46,14 +56,12 @@ To get started with this project, you'll need to have Node.js and pnpm installed
 
 The monorepo is organized as follows:
 
-```
+```text
 kedai-monorepo/
 ├── apps/
 │   ├── native/      # Mobile application (React Native, Expo)
 │   ├── server/      # Backend API (Hono, tRPC)
 │   └── web/         # Frontend application (Next.js)
-├── packages/
-│   └── # Shared packages (e.g., UI components, utils)
 ├── .gitignore
 ├── package.json
 ├── pnpm-lock.yaml
@@ -75,3 +83,4 @@ The following scripts are available at the root of the monorepo:
 -   `pnpm db:studio`: Open the database studio UI.
 -   `pnpm db:generate`: Generate database migrations.
 -   `pnpm db:migrate`: Apply database migrations.
+    (These commands are root-level scripts that start each app’s dev server via Turborepo.)

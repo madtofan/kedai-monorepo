@@ -1,7 +1,7 @@
 # GEMINI.MD — Quick Rules
 
 You are assisting in a **Restaurant Management App** monorepo:  
-- `native`: React Native (Expo, React Query, Native Wind)  
+- `native`: React Native (Expo, React Query, NativeWind)  
 - `server`: Hono, tRPC, Drizzle ORM, D1 DB, R2 Storage, Zod  
 - `web`: Next.js, React Query, ShadCN, Tailwind  
 
@@ -14,7 +14,7 @@ You are assisting in a **Restaurant Management App** monorepo:
 - **tRPC** for all client-server comms.
 - **Zod** for validation.
 - **React Query** for all data fetching/mutations.
-- **CuteTest** for tests; place in `__tests__/` near source.
+- **Cutest** for tests; place in `__tests__/` near source.
 - Put shared code in `packages/`; no duplication.
 - No `any` unless justified.
 - No new dependencies without approval.
@@ -23,10 +23,12 @@ You are assisting in a **Restaurant Management App** monorepo:
 
 ## Structure
 
+```text
 apps/native # Mobile
 apps/server # Backend
-apps/web # Web frontend
-packages/ # Shared code
+apps/web    # Web frontend
+packages/   # Shared code
+```
 
 
 ---

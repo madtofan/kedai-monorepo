@@ -21,6 +21,21 @@ To get started with the server, you'll need to have [Wrangler](https://developer
     pnpm run deploy
     ```
 
+## Environment Variables & Cloudflare Bindings
+
+Configure these before running or deploying:
+
+- Cloudflare D1 binding (database) — binding name as defined in wrangler.jsonc
+- Cloudflare R2 binding (object storage) — binding name as defined in wrangler.jsonc
+- Any app secrets (e.g., JWT_SECRET)
+
+Local development:
+- Ensure wrangler is logged in and your wrangler.jsonc has the D1/R2 bindings.
+- If using `.dev.vars`, document the variables and example values.
+
+Production:
+- Set the same bindings/secrets in your Cloudflare project settings.
+
 ## Tech Stack
 
 -   **Framework:** [Hono](https://hono.dev/docs)
@@ -29,12 +44,13 @@ To get started with the server, you'll need to have [Wrangler](https://developer
 -   **Database:** [Cloudflare D1](https://developers.cloudflare.com/d1/)
 -   **Storage:** [Cloudflare R2](https://developers.cloudflare.com/r2/)
 -   **Validation:** [Zod](https://zod.dev/)
+-   **Authentication:** [Better-Auth](https://better-auth.dev/)
 
 ## Project Structure
 
 The `server` app is structured as follows:
 
-```
+```text
 apps/server/
 ├── src/
 │   ├── db/                 # Database schema and migrations

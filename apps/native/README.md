@@ -6,6 +6,12 @@ This is the mobile application for the Restaurant Management App, built with Rea
 
 To get started with the native app, you'll need to have the Expo Go app installed on your mobile device or an emulator set up on your development machine.
 
+### Prerequisites
+- Node.js (LTS) and pnpm
+- Expo CLI (`pnpm dlx expo --version` to verify)
+- Android: Android Studio + SDKs; iOS: Xcode (on macOS)
+- Ensure device/emulator is available and authorized
+
 1.  **Install dependencies:**
     ```bash
     pnpm install
@@ -30,6 +36,10 @@ To get started with the native app, you'll need to have the Expo Go app installe
         pnpm run web
         ```
 
+## Environment
+- Configure the API base URL used by tRPC/React Query (e.g., `EXPO_PUBLIC_API_URL`).
+- For local development, ensure the device/emulator can reach your server (use LAN IP).
+
 ## Tech Stack
 
 -   **Framework:** [React Native](https://reactnative.dev/docs/getting-started)
@@ -37,12 +47,13 @@ To get started with the native app, you'll need to have the Expo Go app installe
 -   **State Management/Data Fetching:** [React Query](https://tanstack.com/query/latest/docs/react/overview)
 -   **Styling:** [NativeWind](https://www.nativewind.dev/)
 -   **RPC:** [tRPC](https://trpc.io/docs)
+-   **Authentication:** [Better-Auth](https://better-auth.dev/)
 
 ## Project Structure
 
 The `native` app is structured as follows:
 
-```
+```text
 apps/native/
 ├── app/                # Expo Router pages and layouts
 ├── assets/             # Static assets like images and fonts
