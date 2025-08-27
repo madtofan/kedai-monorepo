@@ -19,6 +19,7 @@ You are assisting in a **Restaurant Management App** monorepo:
 - **Vitest** for tests; place in `__tests__/` near source.
 - No `any` unless justified.
 - No new dependencies without approval.
+- **pnpm** is the package manager for this project.
 
 ---
 

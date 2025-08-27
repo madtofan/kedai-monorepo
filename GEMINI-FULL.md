@@ -78,6 +78,7 @@ You will act as:
 
 ### Testing
 - Write **vitest** unit and integration tests for all new code.
+- env can be imported from "cloudflare:test" but it can only be imported within *.test.ts files.
 - Tests should be:
   - Easy to read
   - Deterministic

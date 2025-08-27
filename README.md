@@ -30,7 +30,7 @@ This project utilizes a modern tech stack to ensure a high-quality, scalable, an
 
 ## Getting Started
 
-To get started with this project, you'll need to have Node.js and pnpm installed.
+**This project uses pnpm as a package manager.** To get started with this project, you'll need to have Node.js and pnpm installed.
 
 1.  **Install dependencies:**
     ```bash
